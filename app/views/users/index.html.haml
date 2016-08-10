@@ -2,6 +2,8 @@
 
 = link_to 'New User', new_user_path
 
+%h2 List
+
 %table.table
   %thead
     %tr
@@ -18,3 +20,10 @@
           = link_to 'Show', user_path(user)
           = link_to 'Edit', edit_user_path(user)
           = link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+
+%h2 Search
+
+= form_tag '/search', method: :get do
+  = label_tag(:q, 'Search User:')
+  = text_field_tag :q
+  = submit_tag('Search')

@@ -58,4 +58,6 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  get 'search' => 'users#search'
+
 end

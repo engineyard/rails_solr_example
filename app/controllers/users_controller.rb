@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  def search
+    @users = User.search do
+      fulltext params[:q]
+    end
+
+    render 'index'
+  end
+
   def index
     @users = User.all
   end
