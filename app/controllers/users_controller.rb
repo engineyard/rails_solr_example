@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
   def search
-    @users = User.search do
+    search = User.search do
       fulltext params[:q]
     end
+    @users = search.results
 
     render 'index'
   end
