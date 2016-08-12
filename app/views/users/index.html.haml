@@ -17,13 +17,21 @@
         %td= user.name
         %td= user.phone_number
         %td
-          = link_to 'Show', user_path(user)
-          = link_to 'Edit', edit_user_path(user)
-          = link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+          .btn-group.btn-group-sm
+            = link_to user_path(user), class: 'btn btn-default' do
+              %span.glyphicon.glyphicon-eye-open
+              Show
+            = link_to edit_user_path(user), class: 'btn btn-default' do
+              %span.glyphicon.glyphicon-edit
+              Edit
+            = link_to user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' do
+              %span.glyphicon.glyphicon-trash
+              Delete
 
 %h2 Search
 
-= form_tag '/search', method: :get do
-  = label_tag(:q, 'Search User:')
-  = text_field_tag :q
-  = submit_tag('Search')
+= form_tag '/search', method: :get, class: 'form-inline' do
+  .form-group
+    = label_tag(:q, 'Search User:')
+    = text_field_tag :q, nil, class: 'form-control'
+  = submit_tag 'Search', class: 'btn btn-default btn-info'
