@@ -38,10 +38,10 @@ The app is just a simple User CRUD with a User Search feature using Solr in the 
 
 ## System Dependencies
 
-Rails 4.2
-Ruby version 2.2.3
-Java 7 or higher
-Sunspot 2.2
+* Rails 4.2
+* Ruby version 2.2.3
+* Java 7 or higher
+* Sunspot 2.2
 
 See Gemfile for more details.
 
