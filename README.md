@@ -4,7 +4,30 @@ Basic Rails app for testing Solr.
 
 ## Setup
 
-TODO
+### EY Cloud Environment
+
+1. Prepare config/secrets.yml.
+1. Make sure to run DB migrations.
+1. Setup Solar:
+
+Generate sunspot.yml and move to shared folder:
+
+```
+cd /data/appname/current
+bundle exec rails generate sunspot_rails:install
+mv config/sunspot.yml /data/appname/shared/config/
+```
+
+Deploy to generate symlink to shared/config/sunspot.yml.
+
+Use custom chef recipe for Solr installation.
+
+4. Load seed data:
+
+```
+cd /data/appname/current
+bundle exec rake db:seed
+```
 
 ### Development Environment
 
@@ -39,7 +62,7 @@ The app is just a simple User CRUD with a User Search feature using Solr in the 
 ## System Dependencies
 
 * Rails 4.2
-* Ruby version 2.2.3
+* Ruby 2.2.3
 * Java 7 or higher
 * Sunspot 2.2
 
